@@ -12,6 +12,13 @@ An off-hand Quick Kick melee attack designed in the visual style of Freedoom Guy
 - **Mechanics:** Pushes enemies back, deals melee damage (boosted with Berserk), lowers the ready weapon during the strike, and prevents firing until the kick finishes.
 - **Controls:** Default key **`Q`** (customizable in **Options -> Customize Controls -> Brutal Freedoom -> Quick Kick**).
 
+### 2. `ai-mobility`
+Aggressive AI overhaul enhancing monster behavior and mobility:
+- **Higher Speed & Aggression:** Monsters move 25–50% faster, react instantly (`ReactionTime = 0`), and attack more frequently (`+MISSILEMORE`, `+MISSILEEVENMORE`).
+- **Tactical Dodging:** Monsters detect incoming player missiles and perform evasive sideways dashes.
+- **Hit Reaction Evasion:** When shot, monsters have a chance to immediately strafe out of the player's crosshair.
+- **Leap & Charge Attacks:** Melee monsters (Pinky/Demon/Worm, Spectre, Imp) aggressively leap through the air at the player when within charge distance (creating the perfect opportunity to counter with a Quick Kick!).
+
 ---
 
 ## Building
@@ -24,6 +31,7 @@ A build script is provided to package any mod into a `.pk3` file:
 
 # Or build a specific mod
 ./build.sh quick-kick
+./build.sh ai-mobility
 ```
 
 Packaged `.pk3` files are saved to `dist/`.
@@ -35,11 +43,11 @@ Packaged `.pk3` files are saved to `dist/`.
 Load with your Freedoom IWAD:
 
 ```bash
-# Using the built PK3
-gzdoom -iwad freedoom2.wad -file dist/quick-kick.pk3
+# Run with both mods
+gzdoom -iwad freedoom2.wad -file dist/quick-kick.pk3 -file dist/ai-mobility.pk3
 
-# Or loading the folder directly during development
-gzdoom -iwad freedoom2.wad -file quick-kick
+# Or during development, load directly from folders
+gzdoom -iwad freedoom2.wad -file quick-kick -file ai-mobility
 ```
 
 ---
