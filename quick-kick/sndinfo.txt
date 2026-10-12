@@ -1,0 +1,3 @@
+weapons/kickwhoosh      "sounds/kick_whoosh.wav"
+weapons/kickhit         "sounds/kick_hit.wav"
+weapons/kickflesh       "sounds/kick_flesh.wav"

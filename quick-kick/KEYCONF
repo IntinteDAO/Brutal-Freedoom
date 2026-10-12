@@ -1,0 +1,4 @@
+addkeysection "Brutal Freedoom" BrutalFreedoomControls
+addmenukey "Quick Kick" "use BF_KickController"
+defaultbind "q" "use BF_KickController"
+alias quickkick "use BF_KickController"

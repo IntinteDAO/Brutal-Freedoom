@@ -1,0 +1,7 @@
+dist/
+*.pk3
+*.zip
+*.tar.gz
+*.bak
+*.tmp
+.DS_Store
