@@ -19,6 +19,14 @@ Aggressive AI overhaul enhancing monster behavior and mobility:
 - **Hit Reaction Evasion:** When shot, monsters have a chance to immediately strafe out of the player's crosshair.
 - **Leap & Charge Attacks:** Melee monsters (Pinky/Demon/Worm, Spectre, Imp) aggressively leap through the air at the player when within charge distance (creating the perfect opportunity to counter with a Quick Kick!).
 
+### 3. `recoil-physics`
+Visceral weapon recoil and physical brass casing system:
+- **Camera Recoil & Peak Hold:** Punchy vertical kick with momentary peak hold and springy recovery (calibrated per weapon from Pistol up to Super Shotgun).
+- **Camera Roll & Shake:** Subtle camera tilts and screen shakes on heavy discharges.
+- **Weapon Sprite Kickback:** The weapon in the player's hands physically jerks back and springs forward upon firing.
+- **3D Brass Casings & Shells:** Fully simulated bouncing brass casings (Pistol/Chaingun) and red 12-gauge shotgun shells (with dual ejection on SSG), complete with metallic bounce audio.
+- **Muzzle Smoke:** Translucent powder smoke puffs drifting from the barrel after each shot.
+
 ---
 
 ## Building
@@ -32,6 +40,7 @@ A build script is provided to package any mod into a `.pk3` file:
 # Or build a specific mod
 ./build.sh quick-kick
 ./build.sh ai-mobility
+./build.sh recoil-physics
 ```
 
 Packaged `.pk3` files are saved to `dist/`.
@@ -43,11 +52,17 @@ Packaged `.pk3` files are saved to `dist/`.
 Load with your Freedoom IWAD:
 
 ```bash
-# Run with both mods
-gzdoom -iwad freedoom2.wad -file dist/quick-kick.pk3 -file dist/ai-mobility.pk3
+# Run with all modules
+gzdoom -iwad freedoom2.wad \
+    -file dist/quick-kick.pk3 \
+    -file dist/ai-mobility.pk3 \
+    -file dist/recoil-physics.pk3
 
 # Or during development, load directly from folders
-gzdoom -iwad freedoom2.wad -file quick-kick -file ai-mobility
+gzdoom -iwad freedoom2.wad \
+    -file quick-kick \
+    -file ai-mobility \
+    -file recoil-physics
 ```
 
 ---

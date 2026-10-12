@@ -1,0 +1,2 @@
+weapons/casingtink      "sounds/casing_tink.wav"
+weapons/shelldrop       "sounds/shell_drop.wav"
