@@ -13,6 +13,7 @@ class BF_KickController : CustomInventory
 
     const PSP_KICK = 7331;
     int kickCooldown;
+    bool isKicking;
     bool hasSwung;
     bool hasHit;
 
@@ -32,11 +33,13 @@ class BF_KickController : CustomInventory
         let psp = Owner.player.FindPSprite(PSP_KICK);
         if (psp && psp.CurState != null)
         {
+            isKicking = true;
+
             // Disable shooting during kick
             Owner.player.WeaponState &= ~(WF_WEAPONREADY | WF_WEAPONREADYALT);
             Owner.player.cmd.buttons &= ~(BT_ATTACK | BT_ALTATTACK);
 
-            // Lower weapon slightly during kick ("na lewo od kopnięcia / obok broni")
+            // Lower weapon slightly during kick
             let wepPsp = Owner.player.FindPSprite(PSP_WEAPON);
             if (wepPsp)
             {
@@ -61,20 +64,21 @@ class BF_KickController : CustomInventory
                 DoKickImpact();
             }
         }
-        else
+        else if (isKicking)
         {
-            // Restore weapon when kick is not active
+            // Kick finished! Restore weapon once, do not interfere with weapon switching
+            isKicking = false;
             let wepPsp = Owner.player.FindPSprite(PSP_WEAPON);
-            if (wepPsp && wepPsp.y > 32)
+            if (wepPsp)
             {
                 wepPsp.y = 32;
-                Owner.player.WeaponState |= WF_WEAPONREADY;
             }
             let flashPsp = Owner.player.FindPSprite(PSP_FLASH);
-            if (flashPsp && flashPsp.y > 32)
+            if (flashPsp)
             {
                 flashPsp.y = 32;
             }
+            Owner.player.WeaponState |= WF_WEAPONREADY;
         }
     }
 
