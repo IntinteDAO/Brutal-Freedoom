@@ -1,0 +1,3 @@
+weapons/ricochet1     "sounds/ricochet1.wav"
+weapons/ricochet2     "sounds/ricochet2.wav"
+$random weapons/ricochet { weapons/ricochet1 weapons/ricochet2 }

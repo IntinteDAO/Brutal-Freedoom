@@ -27,6 +27,13 @@ Visceral weapon recoil and physical brass casing system:
 - **3D Brass Casings & Shells:** Fully simulated bouncing brass casings (Pistol/Chaingun) and red 12-gauge shotgun shells (with dual ejection on SSG), complete with metallic bounce audio.
 - **Muzzle Smoke:** Translucent powder smoke puffs drifting from the barrel after each shot.
 
+### 4. `vfx-lighting`
+Real-time dynamic lights and volumetric particle effects:
+- **Real-Time Dynamic Lighting (GLDEFS):** Weapon muzzle flashes light up dark corridors with warm, realistic light; flying projectiles and explosions dynamically illuminate surrounding architecture.
+- **Ricochet Sparks & Wall Debris:** Bullets striking solid walls produce a shower of glowing 3D bouncing sparks, chipped concrete fragments, and ricochet pings.
+- **Volumetric 3D Explosions (No 2D Sprites):** Rocket and explosive barrel detonations replace flat 2D billboard sprites with an expanding 3D spherical fireball, billowing rising smoke, burning shrapnel, and heavy shockwaves.
+- **Enhanced Fireballs:** Imp / Serpentipede fireballs feature a blazing core enhanced with dynamic 3D flame particles, smoke trails, and a volumetric impact blast.
+
 ---
 
 ## Building
@@ -41,6 +48,7 @@ A build script is provided to package any mod into a `.pk3` file:
 ./build.sh quick-kick
 ./build.sh ai-mobility
 ./build.sh recoil-physics
+./build.sh vfx-lighting
 ```
 
 Packaged `.pk3` files are saved to `dist/`.
@@ -56,13 +64,15 @@ Load with your Freedoom IWAD:
 gzdoom -iwad freedoom2.wad \
     -file dist/quick-kick.pk3 \
     -file dist/ai-mobility.pk3 \
-    -file dist/recoil-physics.pk3
+    -file dist/recoil-physics.pk3 \
+    -file dist/vfx-lighting.pk3
 
 # Or during development, load directly from folders
 gzdoom -iwad freedoom2.wad \
     -file quick-kick \
     -file ai-mobility \
-    -file recoil-physics
+    -file recoil-physics \
+    -file vfx-lighting
 ```
 
 ---

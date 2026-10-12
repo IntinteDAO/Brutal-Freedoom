@@ -1,0 +1,239 @@
+// -------------------------------------------------------------
+// DYNAMIC LIGHT DEFINITIONS FOR BRUTAL FREEDOOM (VFX-LIGHTING)
+// -------------------------------------------------------------
+
+// 1. WEAPON MUZZLE FLASHES
+pointlight BF_LIGHT_PISTOL
+{
+    color 1.0 0.82 0.35
+    size 85
+    offset 0 32 0
+    attenuate 1
+}
+
+pointlight BF_LIGHT_SHOTGUN
+{
+    color 1.0 0.72 0.20
+    size 140
+    offset 0 32 0
+    attenuate 1
+}
+
+pointlight BF_LIGHT_SSG
+{
+    color 1.0 0.65 0.15
+    size 210
+    offset 0 32 0
+    attenuate 1
+}
+
+pointlight BF_LIGHT_CHAINGUN
+{
+    color 1.0 0.85 0.30
+    size 95
+    offset 0 32 0
+    attenuate 1
+}
+
+pointlight BF_LIGHT_ROCKET
+{
+    color 1.0 0.60 0.10
+    size 160
+    offset 0 32 0
+    attenuate 1
+}
+
+pointlight BF_LIGHT_PLASMA
+{
+    color 0.25 0.65 1.0
+    size 120
+    offset 0 32 0
+    attenuate 1
+}
+
+pointlight BF_LIGHT_BFG
+{
+    color 0.20 1.0 0.25
+    size 280
+    offset 0 32 0
+    attenuate 1
+}
+
+// 2. WALL IMPACT & PUFF LIGHTS
+flickerlight BF_LIGHT_PUFF
+{
+    color 1.0 0.80 0.30
+    size 28
+    secondarySize 38
+    chance 0.5
+    attenuate 1
+}
+
+pointlight BF_LIGHT_SPARK
+{
+    color 1.0 0.75 0.20
+    size 12
+    attenuate 1
+}
+
+// 3. VOLUMETRIC EXPLOSION DYNAMIC LIGHT (NO 2D SPRITE!)
+flickerlight BF_LIGHT_VOLUMETRIC_EXPLOSION
+{
+    color 1.0 0.62 0.12
+    size 200
+    secondarySize 250
+    chance 0.4
+    attenuate 1
+}
+
+// 4. PROJECTILE FLYING LIGHTS
+pointlight BF_LIGHT_ROCKET_FLY
+{
+    color 1.0 0.65 0.10
+    size 95
+    attenuate 1
+}
+
+pointlight BF_LIGHT_PLASMA_FLY
+{
+    color 0.25 0.70 1.0
+    size 85
+    attenuate 1
+}
+
+flickerlight BF_LIGHT_PLASMA_EXPLODE
+{
+    color 0.30 0.75 1.0
+    size 130
+    secondarySize 160
+    chance 0.5
+    attenuate 1
+}
+
+pointlight BF_LIGHT_IMPBALL_FLY
+{
+    color 1.0 0.50 0.05
+    size 75
+    attenuate 1
+}
+
+pointlight BF_LIGHT_CACOBALL_FLY
+{
+    color 0.20 0.60 1.0
+    size 85
+    attenuate 1
+}
+
+pointlight BF_LIGHT_BARONBALL_FLY
+{
+    color 0.15 1.0 0.20
+    size 90
+    attenuate 1
+}
+
+// -------------------------------------------------------------
+// ATTACH LIGHTS TO ACTOR FRAMES
+// -------------------------------------------------------------
+
+object BF_ExplosionFX
+{
+    frame TNT1A { light BF_LIGHT_VOLUMETRIC_EXPLOSION }
+}
+
+object BF_RicochetPuff
+{
+    frame PUFFA { light BF_LIGHT_PUFF }
+    frame PUFFB { light BF_LIGHT_PUFF }
+}
+
+object BF_Spark
+{
+    frame SPK1A { light BF_LIGHT_SPARK }
+    frame SPK1B { light BF_LIGHT_SPARK }
+    frame SPK1C { light BF_LIGHT_SPARK }
+}
+
+object Pistol
+{
+    frame PISFA { light BF_LIGHT_PISTOL }
+}
+
+object Shotgun
+{
+    frame SHTFA { light BF_LIGHT_SHOTGUN }
+}
+
+object SuperShotgun
+{
+    frame SHT2A { light BF_LIGHT_SSG }
+    frame SHT2B { light BF_LIGHT_SSG }
+}
+
+object Chaingun
+{
+    frame CHGFA { light BF_LIGHT_CHAINGUN }
+    frame CHGFB { light BF_LIGHT_CHAINGUN }
+}
+
+object PlasmaRifle
+{
+    frame PLSFA { light BF_LIGHT_PLASMA }
+    frame PLSFB { light BF_LIGHT_PLASMA }
+}
+
+object RocketLauncher
+{
+    frame MISFA { light BF_LIGHT_ROCKET }
+    frame MISFB { light BF_LIGHT_ROCKET }
+}
+
+object BFG9000
+{
+    frame BFGFA { light BF_LIGHT_BFG }
+    frame BFGFB { light BF_LIGHT_BFG }
+}
+
+object Rocket
+{
+    frame MISLA { light BF_LIGHT_ROCKET_FLY }
+}
+
+object BF_Rocket
+{
+    frame MISLA { light BF_LIGHT_ROCKET_FLY }
+}
+
+object PlasmaBall
+{
+    frame PLSSA { light BF_LIGHT_PLASMA_FLY }
+    frame PLSSB { light BF_LIGHT_PLASMA_FLY }
+    frame PLSEA { light BF_LIGHT_PLASMA_EXPLODE }
+    frame PLSEB { light BF_LIGHT_PLASMA_EXPLODE }
+}
+
+object DoomImpBall
+{
+    frame BAL1A { light BF_LIGHT_IMPBALL_FLY }
+    frame BAL1B { light BF_LIGHT_IMPBALL_FLY }
+}
+
+object BF_ImpFireball
+{
+    frame BAL1A { light BF_LIGHT_IMPBALL_FLY }
+    frame BAL1B { light BF_LIGHT_IMPBALL_FLY }
+    frame BAL1C { light BF_LIGHT_IMPBALL_EXPLODE }
+    frame BAL1D { light BF_LIGHT_IMPBALL_EXPLODE }
+    frame BAL1E { light BF_LIGHT_IMPBALL_EXPLODE }
+}
+
+object CacodemonBall
+{
+    frame BAL2A { light BF_LIGHT_CACOBALL_FLY }
+    frame BAL2B { light BF_LIGHT_CACOBALL_FLY }
+}
+
+object BaronBall
+{
+    frame BAL7A { light BF_LIGHT_BARONBALL_FLY }
+    frame BAL7B { light BF_LIGHT_BARONBALL_FLY }
+}
