@@ -1,0 +1,2 @@
+weapons/aimin       "sounds/aim_in.wav"
+weapons/aimout      "sounds/aim_out.wav"

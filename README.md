@@ -34,6 +34,13 @@ Real-time dynamic lights and volumetric particle effects:
 - **Volumetric 3D Explosions (No 2D Sprites):** Rocket and explosive barrel detonations replace flat 2D billboard sprites with an expanding 3D spherical fireball, billowing rising smoke, burning shrapnel, and heavy shockwaves.
 - **Enhanced Fireballs:** Imp / Serpentipede fireballs feature a blazing core enhanced with dynamic 3D flame particles, smoke trails, and a volumetric impact blast.
 
+### 5. `weapon-zoom`
+Tactical Aim-Down-Sights (ADS) optical zoom for firearms:
+- **Optical Zoom (1.35x):** Hold Right Mouse Button (Mouse 2) with firearms (Pistol, Shotguns, Chaingun, Plasma) for smooth optical magnification.
+- **Automatic Sensitivity Scaling:** Mouse sensitivity scales down smoothly with the zoom factor for steady aim at long distances.
+- **Clean Input Integration:** Non-zooming heavy weapons (Rocket Launcher, BFG9000) are never blocked by Right Mouse Button.
+- **Audio Feedback:** Subtle tactical mechanical clicks and fabric rustles on aim-in and aim-out (`weapons/aimin` and `weapons/aimout`).
+
 ---
 
 ## Building
@@ -49,6 +56,7 @@ A build script is provided to package any mod into a `.pk3` file:
 ./build.sh ai-mobility
 ./build.sh recoil-physics
 ./build.sh vfx-lighting
+./build.sh weapon-zoom
 ```
 
 Packaged `.pk3` files are saved to `dist/`.
@@ -65,14 +73,16 @@ gzdoom -iwad freedoom2.wad \
     -file dist/quick-kick.pk3 \
     -file dist/ai-mobility.pk3 \
     -file dist/recoil-physics.pk3 \
-    -file dist/vfx-lighting.pk3
+    -file dist/vfx-lighting.pk3 \
+    -file dist/weapon-zoom.pk3
 
 # Or during development, load directly from folders
 gzdoom -iwad freedoom2.wad \
     -file quick-kick \
     -file ai-mobility \
     -file recoil-physics \
-    -file vfx-lighting
+    -file vfx-lighting \
+    -file weapon-zoom
 ```
 
 ---
