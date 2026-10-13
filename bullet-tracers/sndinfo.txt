@@ -1,0 +1,1 @@
+weapons/flyby       "sounds/bullet_flyby.wav"

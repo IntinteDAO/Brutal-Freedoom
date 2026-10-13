@@ -1,0 +1,27 @@
+// -------------------------------------------------------------
+// DYNAMIC LIGHTS FOR BULLET TRACERS
+// -------------------------------------------------------------
+
+pointlight BF_LIGHT_PLAYER_TRACER
+{
+    color 1.0 0.88 0.35
+    size 26
+    attenuate 1
+}
+
+pointlight BF_LIGHT_MONSTER_TRACER
+{
+    color 1.0 0.42 0.08
+    size 32
+    attenuate 1
+}
+
+object BF_PlayerTracer
+{
+    frame TRCRA { light BF_LIGHT_PLAYER_TRACER }
+}
+
+object BF_MonsterTracer
+{
+    frame MTRCA { light BF_LIGHT_MONSTER_TRACER }
+}

@@ -41,6 +41,13 @@ Tactical Aim-Down-Sights (ADS) optical zoom for firearms:
 - **Clean Input Integration:** Non-zooming heavy weapons (Rocket Launcher, BFG9000) are never blocked by Right Mouse Button.
 - **Audio Feedback:** Subtle tactical mechanical clicks and fabric rustles on aim-in and aim-out (`weapons/aimin` and `weapons/aimout`).
 
+### 6. `bullet-tracers`
+Physical bullet projectile system replacing instant hitscans:
+- **Visible Bullet Tracers:** Eliminates invisible instant hitscans; bullets fly as high-velocity glowing tracer streaks with dynamic real-time lighting in flight.
+- **Player Gunfire:** Pistol, Chaingun, and Shotguns fire blazing golden tracers (`Speed 135`) that produce ricochets and sparks on impact.
+- **Dodgeable Monster Gunfire:** Zombie soldiers, Shotgun Guys, and Chaingunners fire visible orange-red projectiles (`Speed 68`). You can see incoming rounds coming down corridors and actively sidestep or take cover!
+- **Supersonic Flyby Audio:** Bullets whipping past the player's head produce realistic near-miss flyby cracks (`weapons/flyby`).
+
 ---
 
 ## Building
@@ -57,6 +64,7 @@ A build script is provided to package any mod into a `.pk3` file:
 ./build.sh recoil-physics
 ./build.sh vfx-lighting
 ./build.sh weapon-zoom
+./build.sh bullet-tracers
 ```
 
 Packaged `.pk3` files are saved to `dist/`.
@@ -74,7 +82,8 @@ gzdoom -iwad freedoom2.wad \
     -file dist/ai-mobility.pk3 \
     -file dist/recoil-physics.pk3 \
     -file dist/vfx-lighting.pk3 \
-    -file dist/weapon-zoom.pk3
+    -file dist/weapon-zoom.pk3 \
+    -file dist/bullet-tracers.pk3
 
 # Or during development, load directly from folders
 gzdoom -iwad freedoom2.wad \
@@ -82,7 +91,8 @@ gzdoom -iwad freedoom2.wad \
     -file ai-mobility \
     -file recoil-physics \
     -file vfx-lighting \
-    -file weapon-zoom
+    -file weapon-zoom \
+    -file bullet-tracers
 ```
 
 ---
