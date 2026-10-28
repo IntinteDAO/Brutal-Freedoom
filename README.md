@@ -48,6 +48,19 @@ Physical bullet projectile system replacing instant hitscans:
 - **Dodgeable Monster Gunfire:** Zombie soldiers, Shotgun Guys, and Chaingunners fire visible orange-red projectiles (`Speed 68`). You can see incoming rounds coming down corridors and actively sidestep or take cover!
 - **Supersonic Flyby Audio:** Bullets whipping past the player's head produce realistic near-miss flyby cracks (`weapons/flyby`).
 
+### 7. `camera-tilt`
+Kinetic camera roll during player movement:
+- **Strafe Tilt:** Camera smoothly and springily tilts 2.4° in the direction of movement when strafing left (`A`) or right (`D`).
+- **Smooth Recovery:** Softly returns to level upon releasing the strafe keys, adding weight and momentum to movement without interfering with aiming or crouching.
+
+### 8. `blood-splatter`
+Directional blood spray and persistent environmental gore:
+- **Directional 3D Blood Spray:** Gunfire impacts eject a dense cloud of crimson blood mist behind the target along the trajectory of the bullet.
+- **Persistent Wall Decals:** Droplets striking walls paint permanent, irregular blood decals (`BloodSplat`) on surfaces behind enemies.
+- **Jagged Floor Splatters:** Blood landing on the floor forms organic, jagged, starburst splats randomly rotated 360° that persist on the ground.
+- **Death Blood Geyser:** Slaying monsters triggers a violent fountain of blood and splatter covering surrounding walls and floors.
+- **Flesh Impact Audio:** Crisp, wet flesh impact squelches (`blood/splat`) on hit.
+
 ---
 
 ## Building
@@ -65,6 +78,8 @@ A build script is provided to package any mod into a `.pk3` file:
 ./build.sh vfx-lighting
 ./build.sh weapon-zoom
 ./build.sh bullet-tracers
+./build.sh camera-tilt
+./build.sh blood-splatter
 ```
 
 Packaged `.pk3` files are saved to `dist/`.
@@ -83,7 +98,9 @@ gzdoom -iwad freedoom2.wad \
     -file dist/recoil-physics.pk3 \
     -file dist/vfx-lighting.pk3 \
     -file dist/weapon-zoom.pk3 \
-    -file dist/bullet-tracers.pk3
+    -file dist/bullet-tracers.pk3 \
+    -file dist/camera-tilt.pk3 \
+    -file dist/blood-splatter.pk3
 
 # Or during development, load directly from folders
 gzdoom -iwad freedoom2.wad \
@@ -92,7 +109,9 @@ gzdoom -iwad freedoom2.wad \
     -file recoil-physics \
     -file vfx-lighting \
     -file weapon-zoom \
-    -file bullet-tracers
+    -file bullet-tracers \
+    -file camera-tilt \
+    -file blood-splatter
 ```
 
 ---
