@@ -1,0 +1,1 @@
+user bool bf_autoshoot = true;

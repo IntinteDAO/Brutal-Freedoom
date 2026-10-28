@@ -1,0 +1,4 @@
+addkeysection "Brutal Freedoom" BrutalFreedoomControls
+addmenukey "Toggle Auto-Shooting" "netevent BF_ToggleAutoShoot"
+defaultbind "h" "netevent BF_ToggleAutoShoot"
+alias toggleautoshoot "netevent BF_ToggleAutoShoot"

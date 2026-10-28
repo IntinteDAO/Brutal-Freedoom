@@ -61,6 +61,13 @@ Directional blood spray and persistent environmental gore:
 - **Death Blood Geyser:** Slaying monsters triggers a violent fountain of blood and splatter covering surrounding walls and floors.
 - **Flesh Impact Audio:** Crisp, wet flesh impact squelches (`blood/splat`) on hit.
 
+### 9. `auto-shoot`
+Mobile / modern arcade-style smart auto-firing:
+- **Target Lock Auto-Fire:** Aiming the crosshair at any living enemy automatically opens fire with the currently selected weapon.
+- **Zero Ammo Waste:** Firing stops immediately the moment the target dies or the crosshair moves away from the enemy.
+- **Rocket Launcher Safety:** Automatically withholds rocket fire when an enemy is closer than point-blank suicide range (< 195 units).
+- **In-Game Toggle:** Toggle on/off on the fly with key **`H`** (or in Controls menu: *Toggle Auto-Shooting*).
+
 ---
 
 ## Building
@@ -80,6 +87,7 @@ A build script is provided to package any mod into a `.pk3` file:
 ./build.sh bullet-tracers
 ./build.sh camera-tilt
 ./build.sh blood-splatter
+./build.sh auto-shoot
 ```
 
 Packaged `.pk3` files are saved to `dist/`.
@@ -100,7 +108,8 @@ gzdoom -iwad freedoom2.wad \
     -file dist/weapon-zoom.pk3 \
     -file dist/bullet-tracers.pk3 \
     -file dist/camera-tilt.pk3 \
-    -file dist/blood-splatter.pk3
+    -file dist/blood-splatter.pk3 \
+    -file dist/auto-shoot.pk3
 
 # Or during development, load directly from folders
 gzdoom -iwad freedoom2.wad \
@@ -111,7 +120,8 @@ gzdoom -iwad freedoom2.wad \
     -file weapon-zoom \
     -file bullet-tracers \
     -file camera-tilt \
-    -file blood-splatter
+    -file blood-splatter \
+    -file auto-shoot
 ```
 
 ---
