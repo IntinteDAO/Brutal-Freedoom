@@ -1,0 +1,1 @@
+server bool bf_hordemode = false;

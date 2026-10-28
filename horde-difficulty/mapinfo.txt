@@ -1,0 +1,23 @@
+GameInfo
+{
+    AddEventHandlers = "BF_HordeHandler"
+}
+
+skill brutal_hard
+{
+    SpawnFilter = Hard
+    Name = "Brutal Violence (1.5x Enemies)"
+    TextColor = "Orange"
+    Key = "v"
+    DamageFactor = 1.15
+}
+
+skill brutal_horde
+{
+    SpawnFilter = Hard
+    Name = "Brutal Carnage (Horde 2-3x)"
+    TextColor = "Red"
+    Key = "b"
+    DamageFactor = 1.25
+    FastMonsters
+}

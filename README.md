@@ -68,6 +68,13 @@ Mobile / modern arcade-style smart auto-firing:
 - **Rocket Launcher Safety:** Automatically withholds rocket fire when an enemy is closer than point-blank suicide range (< 195 units).
 - **In-Game Toggle:** Toggle on/off on the fly with key **`H`** (or in Controls menu: *Toggle Auto-Shooting*).
 
+### 10. `horde-difficulty`
+Extended difficulty settings and monster horde multiplier:
+- **Brutal Violence (1.5x Enemies):** Slower-paced escalation with 65% chance of monster pairs and 1.15x enemy damage.
+- **Brutal Carnage (Horde 2-3x):** Standard enemies spawn in groups of 2 to 3, with `FastMonsters` enabled and 1.25x damage for maximum slaughter.
+- **Boss Protection:** Bosses and minibosses (Cyberdemon, Spider Mastermind, Arch-vile, Baron of Hell) are never duplicated to preserve room balance and avoid unfair clutter, receiving only slight stat boosts (+25% HP, +15% Speed).
+- **Smart Wall Checking:** Spawned clones check map geometry (`TestMobjLocation`) so enemies never get stuck inside level architecture.
+
 ---
 
 ## Building
@@ -88,6 +95,7 @@ A build script is provided to package any mod into a `.pk3` file:
 ./build.sh camera-tilt
 ./build.sh blood-splatter
 ./build.sh auto-shoot
+./build.sh horde-difficulty
 ```
 
 Packaged `.pk3` files are saved to `dist/`.
@@ -109,7 +117,8 @@ gzdoom -iwad freedoom2.wad \
     -file dist/bullet-tracers.pk3 \
     -file dist/camera-tilt.pk3 \
     -file dist/blood-splatter.pk3 \
-    -file dist/auto-shoot.pk3
+    -file dist/auto-shoot.pk3 \
+    -file dist/horde-difficulty.pk3
 
 # Or during development, load directly from folders
 gzdoom -iwad freedoom2.wad \
@@ -121,7 +130,8 @@ gzdoom -iwad freedoom2.wad \
     -file bullet-tracers \
     -file camera-tilt \
     -file blood-splatter \
-    -file auto-shoot
+    -file auto-shoot \
+    -file horde-difficulty
 ```
 
 ---
